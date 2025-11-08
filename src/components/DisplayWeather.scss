@@ -1,0 +1,249 @@
+$primary-color: #16171d;
+$secondary-color: #2b2c37;
+$text-color: #bdbecb;
+$highlight-color: #2f303d;
+$shadow-color: rgba(0, 0, 0, 0.5);
+
+.weather-app {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-color: $primary-color;
+	color: $text-color;
+}
+
+.weather-app__container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 50px 100px;
+	border: 1px solid $secondary-color;
+	border-radius: 15px;
+	background-color: $secondary-color;
+	box-shadow: 0 0 15px $shadow-color;
+}
+
+.weather-app__search {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	margin-bottom: 25px;
+}
+
+.weather-app__input {
+	font-family: 'Montserrat', sans-serif;
+	width: 100%;
+	height: 45px;
+	padding-left: 2.5rem;
+	box-shadow: 0 0 0 1.5px $secondary-color, 0 0 25px -17px $shadow-color;
+	border: 0;
+	border-radius: 12px;
+	background-color: $primary-color;
+	outline: none;
+	color: $text-color;
+	transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+	cursor: text;
+	z-index: 0;
+}
+
+.weather-app__input::placeholder {
+	color: $text-color;
+}
+
+.weather-app__input:hover {
+	box-shadow: 0 0 0 2.5px $highlight-color, 0px 0px 25px -15px $shadow-color;
+}
+
+.weather-app__input:active {
+	transform: scale(0.95);
+}
+
+.weather-app__input:focus {
+	box-shadow: 0 0 0 2.5px $highlight-color;
+}
+
+.weather-app__search-icon {
+	position: absolute;
+	left: 1rem;
+	fill: $text-color;
+	width: 1rem;
+	height: 1rem;
+	pointer-events: none;
+	z-index: 1;
+}
+
+.weather-app__details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 50px 0;
+}
+
+.weather-app__title {
+	font-size: 3rem;
+	font-weight: 600;
+	margin: 10px 0;
+}
+
+.weather-app__location {
+	font-size: 1.2rem;
+}
+
+.weather-app__icon {
+	height: 150px;
+	width: 150px;
+	margin-top: 5%;
+	margin-bottom: 20px;
+}
+
+.weather-app__temperature {
+	font-size: 2.5rem;
+	margin: 5px 0;
+	color: $text-color;
+}
+
+.weather-app__info {
+	display: flex;
+	gap: 30px;
+	justify-content: space-around;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.weather-app__info-item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.weather-app__info-icon {
+	font-size: 2rem;
+	color: $text-color;
+}
+
+.weather-app__info-details {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.weather-app__info-value {
+	font-size: 1.2rem;
+	margin: 0;
+}
+
+.weather-app__info-label {
+	font-size: 0.9rem;
+	margin: 0;
+	color: darken($text-color, 20%);
+}
+
+.weather-app__time {
+	font-size: 1.2rem;
+	font-weight: 500;
+	color: $text-color;
+	margin-top: 10px;
+}
+
+.weather-app__icon {
+	transition: all 0.5s ease;
+}
+
+.sunny {
+	animation: rotateSun 5s infinite linear;
+}
+
+.cloudy {
+	animation: moveClouds 3s infinite ease-in-out;
+}
+
+.rain {
+	animation: rainAnimation 2s infinite linear;
+}
+
+.fog {
+	animation: fogAnimation 4s infinite ease-in-out;
+}
+
+.default {
+	animation: defaultAnimation 3s infinite ease-in-out;
+}
+
+@keyframes rotateSun {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes moveClouds {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(10px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes rainAnimation {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(10px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes fogAnimation {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes defaultAnimation {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+.weather-app__icon.snow {
+	position: relative;
+	animation: snowAnimation 10s linear infinite;
+}
+
+@keyframes snowAnimation {
+	0% {
+		opacity: 1;
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
